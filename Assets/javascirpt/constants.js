@@ -1,4 +1,4 @@
-var SCR_W = 500;
+var SCR_W = 700;
 var SCR_H = 500;
 
 //Brick types
@@ -7,6 +7,7 @@ var BRICK_DESTROYED = 0;
 var BRICK_ORANGE = 1;
 var BRICK_BLUE = 2;
 var BRICK_GRAY = 3;
+var BRICK_GREEN = 3;
 
 var ORANGE_MAX_HITS = 1;
 var BLUE_MAX_HITS = 2;
