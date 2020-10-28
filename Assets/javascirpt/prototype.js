@@ -13,7 +13,7 @@ function init()
 	window.addEventListener('keyup', userInputUp, true);
 	
 	//Get a reference to the canvas
-	canvasRef = document.getElementById('gameCanvas');
+	canvasRef = document.getElementById('game-canvas');
 	
 	//Get a handle to the 2d context of the canvas
     ctx = canvasRef.getContext('2d');
