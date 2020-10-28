@@ -7,6 +7,7 @@ var GAME_BG;
 var BALL_IMG;
 var BRICK_ORANGE_IMG;
 var BRICK_BLUE_IMG;
+var BRICK_GREEN_IMG;
 var BRICK_GRAY_IMG;
 var PADDLE_IMG;
 var GAME_OVER_IMG;
@@ -34,7 +35,11 @@ function loadImages()
 	allImagePaths[i] = IMAGES_PATH + "brick_gray.png";
 	BRICK_GRAY_IMG = i;
 	i++;
-	
+    
+    allImagePaths[i] = IMAGES_PATH + "brick_green.jpg";
+	BRICK_GREEN_IMG = i;
+	i++;
+    
 	allImagePaths[i] = IMAGES_PATH + "paddle.png";
 	PADDLE_IMG = i;
 	i++;
