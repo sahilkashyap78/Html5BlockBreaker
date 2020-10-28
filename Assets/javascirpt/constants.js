@@ -1,4 +1,4 @@
-var SCR_W = 500;
+var SCR_W = 700;
 var SCR_H = 500;
 
 //Brick types
