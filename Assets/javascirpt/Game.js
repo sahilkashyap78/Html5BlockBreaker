@@ -36,7 +36,11 @@ function Game()
 			for(j = 0; j < 7; j++)
 			{
 				allBricks[brickCounter] = new Brick();
-				if(i == 4)
+                if(i==j)
+                {
+                    allBricks[brickCounter].init(brickX, brickY, brickW, brickH, BRICK_GREEN);
+                }
+				else if(i == 4)
 				{
 					//For the last row, we will have all bricks as Blue
 					allBricks[brickCounter].init(brickX, brickY, brickW, brickH, BRICK_BLUE);
@@ -262,6 +266,9 @@ function Game()
 					break;
 				case BRICK_BLUE:
 					ctx.drawImage(allImages[BRICK_BLUE_IMG], brickObj.getX(), brickObj.getY());
+					break;
+                case BRICK_GREEN:
+					ctx.drawImage(allImages[BRICK_GREEN_IMG], brickObj.getX(), brickObj.getY());
 					break;
 				case BRICK_GRAY:
 					ctx.drawImage(allImages[BRICK_GRAY_IMG], brickObj.getX(), brickObj.getY());

@@ -52,7 +52,7 @@ function Brick()
 				brickType = BRICK_ORANGE;
 				break;
             case BRICK_GREEN:
-				brickType = BRICK_GREEN;
+				brickType = BRICK_DESTROYED;
 				break;    
 			case BRICK_GRAY:
 			case BRICK_DESTROYED:
