@@ -6,12 +6,10 @@ function Brick()
 	var hitCount;
 	
 	this.init = initializer;
-
 	this.getX = xGetter;
 	this.getY = yGetter;
 	this.getBrickType = brickTypeGetter;
 	this.registerHit = addImpact;
-
 	this.getW = wGetter;
 	this.getH = hGetter;
 	
@@ -34,14 +32,14 @@ function Brick()
 	{
 		return y;
 	}
-	
+   
 	function brickTypeGetter()
 	{
 		return brickType;
 	}
 	
 	function addImpact()
-	{
+	{    
 		hitCount++;
 		switch(brickType)
 		{

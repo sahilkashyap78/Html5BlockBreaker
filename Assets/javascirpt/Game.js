@@ -5,7 +5,7 @@ function Game()
 	var ballObj;
 	var paddleObj;
 	var allBricks;
-    
+    var score = 0;
 	
 	//HARDIK: CODE RELATED TO GAME-OVER----------------------
 	var setIntervalID;
@@ -151,7 +151,8 @@ function Game()
 			//Check from Left
 			if(parseFloat(prevXOfBall) + parseFloat(ballWidth) < paddleObj.getX() && ballRight >= paddleObj.getX())
 			{
-				// Here, we are checking if the previous-right of ball was less than paddle's left AND
+				
+                // Here, we are checking if the previous-right of ball was less than paddle's left AND
 				// the current right of ball is greater or equal to the paddle's left
 				//consoleOut("Left");
 				ballObj.reflectHorizontally();
@@ -161,6 +162,7 @@ function Game()
 			//Check from Top
 			if(parseFloat(prevYOfBall) + parseFloat(ballWidth) < paddleObj.getY() && ballBottom >= paddleObj.getY())
 			{
+                
 				//TODO: write a comment (just like I wrote in the above if-condition) that explains this if condtion
 				//consoleOut("Top");
 				ballObj.refectVertically();
@@ -170,6 +172,7 @@ function Game()
 			//Check from Right
 			if(prevXOfBall > paddleRight && paddleRight >= ballObj.getX())
 			{
+                
 				//consoleOut("Right");
 				ballObj.reflectHorizontally();
 				ballObj.ballMoveCancel();
@@ -178,6 +181,7 @@ function Game()
 			//Check from Bottom
 			if(prevYOfBall > paddleBottom && paddleBottom >= ballObj.getY())
 			{
+                
 				//consoleOut("Right");
 				ballObj.refectVertically();
 				ballObj.ballMoveCancel();
@@ -206,6 +210,10 @@ function Game()
 				//Check from Left
 				if(parseFloat(prevXOfBall) + parseFloat(ballWidth) < brickObj.getX() && ballRight >= brickObj.getX())
 				{
+                    if(brickObj.getBrickType() != BRICK_GRAY)
+                    {
+                        score++;
+                    }
 					//consoleOut("Left");
                     if(isGreenActive)
                     {
@@ -218,6 +226,10 @@ function Game()
 				//Check from Top
 				if(parseFloat(prevYOfBall) + parseFloat(ballWidth) < brickObj.getY() && ballBottom >= brickObj.getY())
 				{
+                    if(brickObj.getBrickType() != BRICK_GRAY)
+                    {
+                        score++;
+                    }
                     if(isGreenActive)
                     {
                         ballObj.setMoreSpeed();
@@ -230,6 +242,10 @@ function Game()
 				//Check from Right
 				if(prevXOfBall > brickRight && brickRight >= ballObj.getX())
 				{
+                    if(brickObj.getBrickType() != BRICK_GRAY)
+                    {
+                        score++;
+                    }
                     if(isGreenActive)
                     {
                         ballObj.setMoreSpeed();
@@ -242,6 +258,10 @@ function Game()
 				//Check from Bottom
 				if(prevYOfBall > brickBottom && brickBottom >= ballObj.getY())
 				{
+                    if(brickObj.getBrickType() != BRICK_GRAY)
+                    {
+                        score++;
+                    }
                     if(isGreenActive)
                     {
                         ballObj.setMoreSpeed();
@@ -270,7 +290,8 @@ function Game()
 		
 		//clear the canvas
 		ctx.clearRect(0,0,500,500);
-		
+        
+        
 		//draw Background
 		ctx.drawImage(allImages[GAME_BG], 0, 0);
 
@@ -279,6 +300,8 @@ function Game()
 
 		//draw Paddle
 		ctx.drawImage(allImages[paddleObj.getImageIndex()], paddleObj.getX(), paddleObj.getY());
+		
+        
 		
 		//draw Bricks
 		var b;
@@ -303,6 +326,10 @@ function Game()
 					break;
 			}
 		}
+        
+        ctx.font = "40px Arial";
+        ctx.fillStyle = "white"
+        ctx.fillText("Score:"+" "+score,SCORE_X,SCORE_Y);
 	}
 	
 	function checkCollision(obj1, obj2)

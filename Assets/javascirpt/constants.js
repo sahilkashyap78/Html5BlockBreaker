@@ -32,3 +32,5 @@ var INIT_BALL_SPEED = 400; 		//this will be in pixels/second
 var INIT_BALL_DIRECTION = 64;
 var isGreenActive = false;
 var greenBrickCounter;
+var SCORE_X = 480;
+var SCORE_Y = 50;
