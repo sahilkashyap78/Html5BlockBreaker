@@ -10,7 +10,8 @@ function Ball()
 	this.ballMoveCancel = moveCancel;
 	this.reflectHorizontally = horizontalReflect;
 	this.refectVertically = verticalReflect;
-
+    this.setMoreSpeed = increaseSpeed;
+    this.setNormalSpeed = normalSpeed;
 	this.getX = xGetter;
 	this.getY = yGetter;
 	this.getPrevX = prevXGetter;
@@ -64,6 +65,16 @@ function Ball()
 	{
 		pathSlope = 180 - pathSlope;
 	}
+    
+    function increaseSpeed()
+    {
+        speed = 600;
+    }
+    
+    function normalSpeed()
+    {
+        speed = 400;
+    }
 
 	function xGetter()
 	{

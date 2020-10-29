@@ -87,10 +87,22 @@ function Game()
 		}
 		//-------------------------------------------------------
 		
+        
 		var currTime = new Date().getTime(); // Let's say the current time is 9:30:35:180
 		var timeElapsed = currTime - lastTime; // So, timeElapsed will be (180 - 156) 24 ms
 		lastTime = currTime;
 		
+        if(isGreenActive)
+        {
+                
+            if(currTime - greenBrickCounter>=10000)
+            {
+                ballObj.setNormalSpeed();
+                isGreenActive = false;           
+            }    
+        }
+        
+        
 		//process events
 		if(inputManager.isLeftPressed())
 			paddleObj.moveLeft();
@@ -195,6 +207,10 @@ function Game()
 				if(parseFloat(prevXOfBall) + parseFloat(ballWidth) < brickObj.getX() && ballRight >= brickObj.getX())
 				{
 					//consoleOut("Left");
+                    if(isGreenActive)
+                    {
+                        ballObj.setMoreSpeed();
+                    }
 					ballObj.reflectHorizontally();
 					ballObj.ballMoveCancel();
 				}
@@ -202,6 +218,10 @@ function Game()
 				//Check from Top
 				if(parseFloat(prevYOfBall) + parseFloat(ballWidth) < brickObj.getY() && ballBottom >= brickObj.getY())
 				{
+                    if(isGreenActive)
+                    {
+                        ballObj.setMoreSpeed();
+                    }
 					//consoleOut("Top");
 					ballObj.refectVertically();
 					ballObj.ballMoveCancel();
@@ -210,6 +230,10 @@ function Game()
 				//Check from Right
 				if(prevXOfBall > brickRight && brickRight >= ballObj.getX())
 				{
+                    if(isGreenActive)
+                    {
+                        ballObj.setMoreSpeed();
+                    }
 					//consoleOut("Right");
 					ballObj.reflectHorizontally();
 					ballObj.ballMoveCancel();
@@ -218,6 +242,10 @@ function Game()
 				//Check from Bottom
 				if(prevYOfBall > brickBottom && brickBottom >= ballObj.getY())
 				{
+                    if(isGreenActive)
+                    {
+                        ballObj.setMoreSpeed();
+                    }
 					//consoleOut("Right");
 					ballObj.refectVertically();
 					ballObj.ballMoveCancel();

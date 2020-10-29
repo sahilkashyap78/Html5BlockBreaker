@@ -30,3 +30,5 @@ var BRICKS_VGAP = 5;
 //Ball init speed & direction
 var INIT_BALL_SPEED = 400; 		//this will be in pixels/second
 var INIT_BALL_DIRECTION = 64;
+var isGreenActive = false;
+var greenBrickCounter;
