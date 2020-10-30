@@ -34,3 +34,5 @@ var isGreenActive = false;
 var greenBrickCounter;
 var SCORE_X = 480;
 var SCORE_Y = 50;
+var LIFE_X = 20;
+var LIFE_Y = 50

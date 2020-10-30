@@ -6,7 +6,7 @@ function Game()
 	var paddleObj;
 	var allBricks;
     var score = 0;
-	
+	var life = 3;
 	//HARDIK: CODE RELATED TO GAME-OVER----------------------
 	var setIntervalID;
 	var isGameOver;
@@ -132,8 +132,17 @@ function Game()
 		//CHECKING IF BALL'S Y POSITION IS GREATER THAN PADDLE'S BOTTOM EDGE (PADDLE_Y + PADDLE_HEIGHT)
 		if(ballObj.getY() > paddleObj.getY() + paddleObj.getH())
 		{
-			//SETTING IS-GAME-OVER AS TRUE
-			isGameOver = true;
+			if(life==1)
+            {
+                //SETTING IS-GAME-OVER AS TRUE
+			     isGameOver = true;
+            }
+            else
+            {   
+                life--;
+                ballObj.refectVertically();
+                ballObj.ballMoveCancel();
+            }
 		}
 		//--------------------------------------------------------
 		
@@ -281,10 +290,10 @@ function Game()
 		//HARDIK: CODE RELATED TO GAME-OVER----------------------
 		//IF isGameOver is true,
 		//DRAW GAME-OVER-IMAGE & return
-		if(isGameOver)
+		if(isGameOver)    
 		{
 			ctx.drawImage(allImages[GAME_OVER_IMG], 0, 0);
-			return;
+			 return;
 		}
 		//-------------------------------------------------------
 		
@@ -326,6 +335,10 @@ function Game()
 					break;
 			}
 		}
+        
+        ctx.font = "40px Arial";
+        ctx.fillStyle = "white"
+        ctx.fillText("Life:"+" "+life,LIFE_X,LIFE_Y);
         
         ctx.font = "40px Arial";
         ctx.fillStyle = "white"
